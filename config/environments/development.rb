@@ -31,7 +31,18 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { protocol: 'https',host:'cc1105a6291c479eb5719688fce887dd.vfs.cloud9.ap-northeast-1.amazonaws.com'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    enable_starttls_auto: true,
+    port:                 587,
+    domain:             'gmail.com',
+    user_name:        'qfpng09604@gmail.com',
+    password:             'qpwwcchwhxutekob',
+    authentication:       :plain
+  }
 
   config.action_mailer.perform_caching = false
 
