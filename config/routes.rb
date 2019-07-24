@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :clips
   resources :articles
   devise_for :users
   root 'home#index'
