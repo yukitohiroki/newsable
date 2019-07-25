@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Clips</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Clip</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_clips.each do |user_clip| %>
+     <% clip = user_clip.clip %>
+       <tr>
+        <td><%= clip.url %></td>
+        <td><%= clip.title %></td>
+        <td><%= clip.description %></td>
+        <td><%= image_tag clip.image, width: 200 if clip.image %></td>
+        <td><%= link_to 'Show', user_clip %></td>
+        <td><%= link_to 'Edit', edit_user_clip_path(user_clip) %></td>
+        <td><%= link_to 'Destroy', user_clip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Clip', new_user_clip_path %>
+

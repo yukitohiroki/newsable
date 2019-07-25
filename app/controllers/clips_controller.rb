@@ -18,35 +18,18 @@ class ClipsController < ApplicationController
   end
 
   # GET /clips/1/edit
-  def edit
+  def ed
   end
 
   # POST /clips
   # POST /clips.json
   def create
-    @clip = Clip.new(clip_params)
-
-  begin
-    meta = MetaInspector.new(@clip.url)
-    @clip.title = meta.title
-    @clip.description = meta. best_description
-    @clip.image = meta.images.best
-  rescue
-    @clip.errors.add(:base, "無効なURLです")
-    render :new
-    return
-  end
-
+    @clip = Clip.find_or_initialize_by(url: params[:url])
+    @user_clip = current_user.user_clips.build(clip: @clip)
     respond_to do |format|
-      if @clip.save
-        format.html { redirect_to @clip, notice: 'Clip was successfully created.' }
-        format.json { render :show, status: :created, location: @clip }
-      else
-        format.html { render :new }
-        format.json { render json: @clip.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+    if @clip.save && @user_clip.save
+      format.html { redirect_to user_clips_url, notice: '...' }    
+  end 
 
   # PATCH/PUT /clips/1
   # PATCH/PUT /clips/1.json
