@@ -18,7 +18,7 @@ class ClipsController < ApplicationController
   end
 
   # GET /clips/1/edit
-  def ed
+  def edit
   end
 
   # POST /clips
