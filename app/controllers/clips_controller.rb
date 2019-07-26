@@ -18,18 +18,24 @@ class ClipsController < ApplicationController
   end
 
   # GET /clips/1/edit
-  def ed
+  def edit
   end
 
   # POST /clips
   # POST /clips.json
   def create
-    @clip = Clip.find_or_initialize_by(url: params[:url])
-    @user_clip = current_user.user_clips.build(clip: @clip)
+    @clip = Clip.new(clip_params)
+
     respond_to do |format|
-    if @clip.save && @user_clip.save
-      format.html { redirect_to user_clips_url, notice: '...' }    
-  end 
+      if @clip.save
+        format.html { redirect_to @clip, notice: 'Clip was successfully created.' }
+        format.json { render :show, status: :created, location: @clip }
+      else
+        format.html { render :new }
+        format.json { render json: @clip.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # PATCH/PUT /clips/1
   # PATCH/PUT /clips/1.json
@@ -56,13 +62,13 @@ class ClipsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_clip
-      @clip = Clip.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_clip
+  @clip = Clip.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def clip_params
-      params.require(:clip).permit(:url, :title, :description, :image)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def clip_params
+  params.require(:clip).permit(:url, :title, :description, :image)
+  end
 end
