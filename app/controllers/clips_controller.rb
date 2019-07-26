@@ -62,13 +62,13 @@ class ClipsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_clip
-      @clip = Clip.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_clip
+  @clip = Clip.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def clip_params
-      params.require(:clip).permit(:url, :title, :description, :image)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def clip_params
+  params.require(:clip).permit(:url, :title, :description, :image)
+  end
 end
