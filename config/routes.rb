@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  resources :article_categories
+  resources :categories
   resources :user_clips
   resources :clips
-  resources :articles
+  resources :articles do
+    collection do
+      get 'search'
+    end
+ end
   devise_for :users
   root 'home#index'
   get 'home/index'

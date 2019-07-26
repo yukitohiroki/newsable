@@ -62,6 +62,11 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def search
+    #Viewのformで取得したパラメータをモデルに渡す
+    @articles = Article.search(params[:search])
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article

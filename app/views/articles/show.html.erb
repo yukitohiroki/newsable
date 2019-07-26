@@ -2,12 +2,17 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @article.title %>
+  <%= @article.upcase_title %>
 </p>
 
 <p>
-  <strong>Body:</strong>
-  <%= @article.body %>
+  <strong>読了予想時間：</strong>
+    <%= @article.reading_time_predicition %>分
+</p>
+
+<p>
+    <strong>Body:</strong>
+    <%= @article.body %>
 </p>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
