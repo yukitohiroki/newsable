@@ -69,4 +69,4 @@ class UserClipsController < ApplicationController
     def user_clip_params
       params.require(:user_clip).permit(:user_id, :clip_id)
     end
-end
+end 
