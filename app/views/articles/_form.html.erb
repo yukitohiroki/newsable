@@ -21,12 +21,14 @@
     <%= form.text_area :body %>
   </div>
 
-  <div class="category">
+  <div class="field">
     <%= form.label :category %>
-    <%= form.text_area :category %>
+    <%= form.collection_select :category_ids, Category.all, :id, :name %>
   </div>
 
+  <br>
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>
