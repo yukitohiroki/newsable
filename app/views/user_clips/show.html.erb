@@ -2,7 +2,7 @@
 
 <h1><%= @clip.title %></h1>
 <p><%= @clip.description %></p>
-  <%= image_tag @clip.image, width: 500 if @clip.imge %>
+  <%= image_tag @clip.image, width: 500 if @clip.image %>
 
 <%= link_to 'Edit', edit_user_clip_path(@user_clip) %> |
 <%= link_to 'Back', user_clips_path %>

@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @hello = "Hello!"
+	 @clips = Clip.all
   end
 end

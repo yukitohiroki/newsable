@@ -6,13 +6,20 @@
 </p>
 
 <p>
-  <strong>読了予想時間：</strong>
-    <%= @article.reading_time_predicition %>分
+    <strong>Body:</strong>
+    <%= @article.body %>
 </p>
 
 <p>
-    <strong>Body:</strong>
-    <%= @article.body %>
+    <strong>Category:</strong>
+    <% @article.article_categories.each do |article_categories| %>
+     <%= article_categories.category.name %>
+    <% end %>
+</p>
+
+<p>
+  <strong>読了予想時間：</strong>
+    <%= @article.reading_time_predicition %>分
 </p>
 
 <%= link_to 'Edit', edit_article_path(@article) %> |
