@@ -1,3 +1,25 @@
 <div class="container">
-  <h1><%= @hello %></h1>
+ <div class="card-columns">
+  <% counter = 0 %>
+   <% @clips.each do |clip| %>
+    <% if counter  < 3  then %>
+      <%= render partial: "clips/index", locals: { clip: clip } %>
+    <% counter = counter + 1 %>
+    <% elsif counter >= 3  then %>
+     <div class="card bg-primary text-white text-center p-3">
+      <blockquote class="blockquote mb-0">
+        <p>Click on the news title you are interested in and post your opinion.</p>
+      <footer class="blockquote-footer">
+        <small>
+          Someone famous in <cite title="Source Title">BUSINESS ,ENTERTAINMENT,DEVELOPMENT...etc</cite>
+        </small>
+      </footer>
+      </blockquote>
+     </div>
+    <% counter = 0 %>
+    <% end %>
+   <% end %>
+  </div>
 </div>
+
+

@@ -14,6 +14,7 @@
       <tr>
         <td><%= article.title %></td>
         <td><%= article.body %></td>
+        <td><%= article.category %></td>
         <% if user_signed_in? %>
         <td><%= link_to '編集', edit_article_path(article) %></td>
         <td><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></td>
