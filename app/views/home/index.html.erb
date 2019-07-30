@@ -1,25 +1,48 @@
-<div class="container">
- <div class="card-columns">
-  <% counter = 0 %>
-   <% @clips.each do |clip| %>
-    <% if counter  < 3  then %>
-      <%= render partial: "clips/index", locals: { clip: clip } %>
-    <% counter = counter + 1 %>
-    <% elsif counter >= 3  then %>
-     <div class="card bg-primary text-white text-center p-3">
-      <blockquote class="blockquote mb-0">
-        <p>Click on the news title you are interested in and post your opinion.</p>
-      <footer class="blockquote-footer">
-        <small>
-          Someone famous in <cite title="Source Title">BUSINESS ,ENTERTAINMENT,DEVELOPMENT...etc</cite>
-        </small>
-      </footer>
-      </blockquote>
-     </div>
-    <% counter = 0 %>
-    <% end %>
-   <% end %>
+<main class="bd-masthead" id="content" role="main">
+  <div class="container">
+    <div class="row align-items-center" style ="padding-bottom:30px;">
+      <div class="col-6 mx-auto col-md-6 order-md-2">
+        <h1 class="mb-3 bd-text-purple-bright"  style = "text-align: center;">Our Services</h1>
+        <p class="text-muted mb-0" style = "text-align: center;">
+          Ruby v2.6.3 Rails v5.2.0 Mysql2 v5.6.43
+        </p>
+        <br>
+        <p class="lead" style ="text-align:center;">
+          当サイトでは会員登録後に以下の機能がご利用可能です。
+        </p>
+      </div>
+    </div>
+    <div class="masthead-followup row m-0 border border-white">
+
+    <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white">
+      <!-- Icon by Bytesize https://github.com/danklammer/bytesize-icons -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="text-primary mb-2" viewBox="0 0 32 32" focusable="false"><title>Import</title><path d="M28 22v8H4v-8M16 4v20m-8-8l8 8 8-8"></path></svg>
+      <h3>Browsing</h3>
+      <p style = "font-size: 15px;">様々なジャンルのニュース記事を一覧に表示します。興味関心のあるキーワードで記事を検索することができます。ご自身で最新記事にアップデートすることが可能です。</p>
+
+      <hr class="half-rule">
+      <a class="btn btn-outline-primary" href="/articles">Browsing all Feeds</a>
+    </div>
+
+    <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white">
+      <!-- Icon by Bytesize https://github.com/danklammer/bytesize-icons -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="text-primary mb-2" viewBox="0 0 32 32" focusable="false"><title>Download</title><path d="M9 22c-9 1-8-10 0-9C6 2 23 2 22 10c10-3 10 13 1 12m-12 4l5 4 5-4m-5-10v14"></path></svg>
+      <h3>Recommend</h3>
+      <p style = "font-size: 15px;">各ニュース記事の外部リンクから元サイトで記事の詳細内容を閲覧できます。興味のあるニュースをお気に入りに追加するだけで、他のユーザーに共有されます。</p>
+
+      <hr class="half-rule">
+      <a class="btn btn-outline-primary" href="/user_clips">Recommend the News</a>
+    </div>
+
+    <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white">
+      <!-- Icon by Bytesize https://github.com/danklammer/bytesize-icons -->
+      <svg xmlns="/" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="text-primary mb-2" viewBox="0 0 32 32" focusable="false"><title>Lightning</title><path d="M18 13l8-11L8 13l6 6-8 11 18-11z"></path></svg>
+      <h3>Exchange</h3>
+      <p style = "font-size: 15px;">
+        NewsAbleは、全てのユーザーがニュース記事に意見を投稿することができます。いいね・コメント機能を備えており、ユーザー同士の交流を目的としたBtoB形式のWebサービスです。
+      </p>
+      <hr class="half-rule">
+      <a href="/clips" class="btn btn-outline-primary">Exchange of Opinions</a>
+    </div>
   </div>
-</div>
-
-
+</main>

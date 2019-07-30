@@ -1,8 +1,15 @@
-<p id="notice"><%= notice %></p>
+<table style = "width:100%;" class="table table-bordered">
+  <thead class="thead-dark">
+      <th scope="col">Image</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+  </thead>
 
-<h1><%= @clip.title %></h1>
-<p><%= @clip.description %></p>
-  <%= image_tag @clip.image, width: 500 if @clip.image %>
-
-<%= link_to 'Edit', edit_user_clip_path(@user_clip) %> |
-<%= link_to 'Back', user_clips_path %>
+  <tbody style = "width: 100%;">
+    <tr>
+      <td><img class="card-img-right flex-auto d-none d-lg-block" src="<%= @clip.image %>"  style="width: 350px; height: 380px;"></td>
+      <td><%= @clip.title %></td>
+      <td><%= @clip.description %><br><br><a class="btn btn-primary btn-sm" href="<%=  @clip.url %>" target="_blank">Continue reading</a></br></td>
+    </tr>
+  </tbody>
+</table>
