@@ -5,7 +5,15 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    require 'net/http'
+    require 'uri'
+    require 'json'
+
+    uri = URI.parse('https://newsapi.org/v2/top-headlines?country=jp&category&apiKey=9f88e3748ec14d1a98204072a6aa8833') #news_API
+    json = Net::HTTP.get(uri)
+    moments = JSON.parse(json)
+    @articles = Article.new
+    @articles = moments['articles']
   end
 
   # GET /articles/1
@@ -21,6 +29,12 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    @article = Article.find(params[:id])
+  end
+
+  def search
+    #Viewのformで取得したパラメータをモデルに渡す
+    @articles = Article.all
   end
 
   # POST /articles
@@ -42,15 +56,9 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
-    respond_to do |format|
-      if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
-        format.json { render :show, status: :ok, location: @article }
-      else
-        format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
-    end
+    post_text = params[:data][:text]
+    results = { :message => post_text }
+    render partial: 'ajax_partial', locals: { :results => results }
   end
 
   # DELETE /articles/1
@@ -61,11 +69,6 @@ class ArticlesController < ApplicationController
       format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def search
-    #Viewのformで取得したパラメータをモデルに渡す
-    @articles = Article.search(params[:search])
   end
 
   private

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NewsActs</title>
+    <title>NewsAble</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d3c52cf7c2a16f6"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
       (adsbygoogle = window.adsbygoogle || []).push({
@@ -18,7 +19,6 @@
       window.onunload = function(){location.reload();}
       function reloadCheck()
       {
-
       // var timer_id;
       // var counter = 0;
       // const timer = 3000    // ミリ秒で間隔の時間を指定
@@ -30,11 +30,16 @@
       //         clearTimeout( timer_id );
       //   }
       // });
-
-(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");
-
-      </script>
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d3c52cf7c2a16f6"></script>
+      <script>
+    $(function(){
+        $('a.navbar-brand').click(function(){
+            console.log("別の操作もできる");
+            return false;
+        })
+    });
+    </script>
+    <script>(function(t,a,y,o,r,i){r=a.createElement(y),i=a.getElementsByTagName(y)[0];r.type='text/javascript';r.async=1;r.src='http://tayori.com/form/64410234d28d9e9b166d7579922566c0736431cb/tag.js';r.id='tayori-tag';i.parentNode.insertBefore(r,i)})(window,document,'script');
+    </script>
   </head>
     <div style = "text-align: center;padding-bottom: 10px;padding-top: 10px;">
       <a href="https://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=C298Dy3Q6Xb22N8vn2gS7xr74CYma8sZO7Y38zZIJhLXZ2poLEAEgwdeHLGCJs8-EnBSgAej_g9cDyAEDqQI1TAqNUcFDPuACAKgDAcgDCKoEygFP0DnaBrFd1hkPtGGC0a-Iilx-KT7FAUXXNv7myS3vwqNCgrbbbIPtUjSLDnvVEA1zuw3mcc5jxs4Ehln3cGFaiRAYTEOhcQANEhoa7Z-o5jfrXfAnZyuX8b4ylB5DlCnlaIi6cqETxYv4YjntprBCcI34Nsjlv2qRcUhx44gkrLIV11pymo3aCP9f7PYz5lYRh1fDX0D9q7b3lZ38mTW6y8XoZHu60f1fNQl6yDygMbebx0M7ul66LU_oHliZKrdiZrmy9sRSnvO54AQBoAYDgAeAgPwoqAeOzhuoB9XJG6gHwdMbqAeF1BuoB4HUG6gHgtQbqAeG1BuoB4TUG6gH4NMbqAe6BqgH2csbqAfPzBuoB6a-G6gH89EbqAfs1RvYBwHSCAcIgAEQARgNsQmr5ZZoRfCcRYAKA9gTAg&amp;ae=1&amp;num=1&amp;cid=CAASEuRojSQrQJI0IFu5Wg5tOVB5PQ&amp;sig=AOD64_2RFSA4UIVCKAxg5pAbul15onWTHA&amp;client=ca-pub-2494949456600497&amp;nx=650&amp;ny=30&amp;nb=2&amp;adurl=https://www.onamae.com/campaign/trial3/%3Fflow%3Dnormal%26banner_id%3D787_rtg_top_comnetwork_1%26waad%3DnLWDnYOJ%26argument%3D29kVaVam%26dmai%3Da5cd2a1d2af0c9%26gclid%3DEAIaIQobChMI_cexxdPR4wIVy7OWCh07ow-fEAEYASAAEgKw6vD_BwE" id="aw0" on="tap:exit-api.exit(target='landingPage',_nb='2')" target="_blank" data-a4a-orig-href="https://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=C298Dy3Q6Xb22N8vn2gS7xr74CYma8sZO7Y38zZIJhLXZ2poLEAEgwdeHLGCJs8-EnBSgAej_g9cDyAEDqQI1TAqNUcFDPuACAKgDAcgDCKoEygFP0DnaBrFd1hkPtGGC0a-Iilx-KT7FAUXXNv7myS3vwqNCgrbbbIPtUjSLDnvVEA1zuw3mcc5jxs4Ehln3cGFaiRAYTEOhcQANEhoa7Z-o5jfrXfAnZyuX8b4ylB5DlCnlaIi6cqETxYv4YjntprBCcI34Nsjlv2qRcUhx44gkrLIV11pymo3aCP9f7PYz5lYRh1fDX0D9q7b3lZ38mTW6y8XoZHu60f1fNQl6yDygMbebx0M7ul66LU_oHliZKrdiZrmy9sRSnvO54AQBoAYDgAeAgPwoqAeOzhuoB9XJG6gHwdMbqAeF1BuoB4HUG6gHgtQbqAeG1BuoB4TUG6gH4NMbqAe6BqgH2csbqAfPzBuoB6a-G6gH89EbqAfs1RvYBwHSCAcIgAEQARgNsQmr5ZZoRfCcRYAKA9gTAg&amp;ae=1&amp;num=1&amp;cid=CAASEuRojSQrQJI0IFu5Wg5tOVB5PQ&amp;sig=AOD64_2RFSA4UIVCKAxg5pAbul15onWTHA&amp;client=ca-pub-2494949456600497&amp;nx=CLICK_X&amp;ny=CLICK_Y&amp;nb=2&amp;adurl=https://www.onamae.com/campaign/trial3/%3Fflow%3Dnormal%26banner_id%3D787_rtg_top_comnetwork_1%26waad%3DnLWDnYOJ%26argument%3D29kVaVam%26dmai%3Da5cd2a1d2af0c9%26gclid%3DEAIaIQobChMI_cexxdPR4wIVy7OWCh07ow-fEAEYASAAEgKw6vD_BwE"><amp-img alt="" class="img_ad i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-element i-amphtml-layout" height="90" i-amphtml-layout="fixed" i-amphtml-ssr="" src="https://tpc.googlesyndication.com/simgad/17554072985926828441" style="width:970px;height:90px;" width="970"><img alt="" class="i-amphtml-fill-content i-amphtml-replaced-content" decoding="async" src="https://tpc.googlesyndication.com/simgad/17554072985926828441"></amp-img></a>
@@ -42,48 +47,49 @@
     <% if current_page?(root_path) %>
     <div class="jumbotron text-center hero">
     <div class="container">
-       <h1>あなたのニュースを話し合おう！</h1>
-       <p>NewsActsはニュースを共有するためのプラットフォームです</p>
+       <h1>Welcome to NewsAble</h1>
+       <p>NewsAbleはニュースを共有するためのプラットフォームです</p>
        <%= link_to "Sing Up Now!",
-        new_user_registration_path, class: "btn btn-primary" %>
+        new_user_registration_path, class: "btn btn-primary" , data: {"turbolinks" => false} %>
     </div>
     </div>
     <% end %>
   <body onLoad="rCheck()">
      <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-      <a class="navbar-brand" href="/">NewsActs</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style =  "text-align:left;"">
+      <%= link_to "NewsAble", root_path, method: :get,:style=>"color:white;padding-left:10px;", data: {"turbolinks" => false} %>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style =  "text-align:left;">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav"  style = "color:white;">
         <ul class="navbar-nav">
           <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "ブログ", articles_path, method: :get,:style=>"color:white;padding-left:10px;" %>
+              <%= link_to "Articles", articles_path, method: :get,:style=>"color:white;padding-left:10px;", data: {"turbolinks" => false} %>
             </li>
             <li class="nav-item">
-              <%= link_to "クリップ", user_clips_path, method: :get,:style=>"color:white;padding-left:10px;" %>
+              <%= link_to "Clips", clips_path, method: :get,:style=>"color:white;padding-left:10px;" , data: {"turbolinks" => false} %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "User-Clip", user_clips_path, method: :get,:style=>"color:white;padding-left:10px;" , data: {"turbolinks" => false} %>
             </li>
             <li class="nav-item">
               <span style = "color:white;padding-left:10px;"><%= current_user.email %>としてログイン中</span>
             </li>
             <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete,:style=>"color:white;padding-left:10px;" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "アカウント編集", edit_user_registration_path, :style=>"color:white;padding-left:10px;" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete,:style=>"color:white;padding-left:10px;" , data: {"turbolinks" => false} %>
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+              <%= link_to "Log in", new_user_session_path, class: 'nav-link',:style=>"color:white;padding-left:10px;"  , data: {"turbolinks" => false} %>
             </li>
           <% end %>
         </ul>
       </div>
-      <%= form_tag(search_articles_path,:method => 'get') do %>
+      <%= form_tag(search_articles_path,:method => 'get', class: "btn btn-outline-light btn-sm") do %>
         <%= text_field_tag :search %>
         <%= submit_tag 'Search', :name => nil %>
       <% end %>
+      <span style="margin-left: 10px;"><%= link_to 'New User Clip', new_user_clip_path, class: "btn btn-light btn-sm" , data: {"turbolinks" => false} %></span>
     </nav>
     <div class="container">
     <p class="notice"><%= notice %></p>
@@ -92,8 +98,9 @@
     </div>
     <div class="addthis_inline_share_toolbox_qu5i" style = "text-align:center;"></div>
   </body>
+  <br>
+  <div class="addthis_inline_share_toolbox_g1cu" style = "text-align: center;"></div>
   <footer class="footer bg-danger">
     <div class="text-mute" style = "color:white;margin-top: 10px;">© Copyright 2019 Global News Media & Entertainment Private Limited | All Rights Reserved</div>
   </footer>
-
 </html>

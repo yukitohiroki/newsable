@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>User Clips</h1>
 
 <table class="table table-bordered table table-hover table-sm">
@@ -12,8 +10,8 @@
   </thead>
 
   <tbody>
-       <tr>
-        <% @user_clips.each do |user_clip| %>
+    <% @user_clips.each do |user_clip| %>
+      <tr>
         <td><%= current_user.email %></td>
         <% clip = user_clip.clip %>
         <td><%= clip.title %></td>
@@ -25,8 +23,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New User Clip', new_user_clip_path %>
-
