@@ -1,22 +1,22 @@
-<div class="container" >
-  <p class="opinions_title">
-    <strong>opinion_title:</strong> 
-    <%= @opinion.title %>
-  </p>
-
-  <p class="opinions_body">
-    <strong>opinion:</strong> 
-    <br/>
-    <br/>
-    <%= @opinion.body %>
-  </p>
-  <!-- LikeBtn.com BEGIN -->
-  <a class="likebtn-wrapper" data-theme="likebtn" data-identifier="item_1"　></a>
-  <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
-  <!-- LikeBtn.com END -->
-
-  <table class="table table-bordered">
-    <thead>
+<div class="container" style = "width:70%;">
+  <h3>Opinion Review</h3>
+  <table class="table table-bordered table table-sm" style ="height:100px;margin-bottom: 100px;">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" class="col1">Title</th>
+        <th scope="col" class="col2">Opinion</th>
+      </tr>
+    </p>
+    </thead>
+    <tbody>
+      <tr>
+        <td style = "font-size: 20px;"><%= @opinion.title %></td>
+        <td style = "font-size: 20px;"><%= @opinion.body %></td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table table-bordered table-sm">
+    <thead class="thead-info bg-info">
       <tr>
         <th scope="col" class="col1">Commenter</th>
         <th scope="col" class="col2">Comment</th>
@@ -24,29 +24,29 @@
       </tr>
     </thead>
     <tbody>
+      <h3>Comment Review</h3>
       <% @opinion.comments.each do |comment| %>
         <tr>
-          <td><%= comment.commenter %></td>
-          <td class="tb1"><%= comment.body %></td>
-          <td><%= link_to 'Destroy', clip_opinion_comment_path(@clip,@opinion,comment),
-                    data: {confirm: 'Are You Sure?'},
+          <td class="tb2"><%= comment.commenter %></td>
+          <td class="tb2"><%= comment.body %></td>
+          <td class="tb2"><%= link_to '削除', clip_opinion_comment_path(@clip,@opinion,comment),
+                    data: {confirm: 'コメントを削除してもよろしいですか?'},
                     :method => :delete %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
 
-<%= form_for([@clip, @opinion, @opinion.comments.build]) do |f| %>
-  <div class="field">
-    <%= f.label :name, {class: "commenter"} %><br>
-    <%= f.text_field :commenter %>
-  </div>
-  <div class="field">
-    <%= f.label :comment , {class: "comment_body"}%><br>
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %> 
+    <%= form_for([@clip, @opinion, @opinion.comments.build]) do |f| %>
+    <div class="form-group">
+      <%= f.text_field :commenter, class: "form-control" , placeholder: "名前" %>
+    </div>
+    <div class="form-group">
+      <%= f.text_area :body, class: "form-control" , placeholder: "200文字まで"%>
+    </div>
+    <div class="actions">
+      <%= f.submit "Create",  class: "btn btn-primary",  style: "width:170px;" %>
+    </div>
+    <% end %>
+
 </div>
