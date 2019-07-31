@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_023039) do
+ActiveRecord::Schema.define(version: 2019_07_31_113502) do
+
+  create_table "Articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "article_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "article_id"
@@ -19,13 +26,6 @@ ActiveRecord::Schema.define(version: 2019_07_26_023039) do
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_article_categories_on_article_id"
     t.index ["category_id"], name: "index_article_categories_on_category_id"
-  end
-
-  create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -39,6 +39,24 @@ ActiveRecord::Schema.define(version: 2019_07_26_023039) do
     t.string "title"
     t.text "description"
     t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "commenter"
+    t.text "body"
+    t.bigint "opinion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["opinion_id"], name: "index_comments_on_opinion_id"
+  end
+
+  create_table "opinions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "title"
+    t.text "body"
+    t.integer "clip_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,6 +88,7 @@ ActiveRecord::Schema.define(version: 2019_07_26_023039) do
 
   add_foreign_key "article_categories", "articles"
   add_foreign_key "article_categories", "categories"
+  add_foreign_key "comments", "opinions"
   add_foreign_key "user_clips", "clips"
   add_foreign_key "user_clips", "users"
 end

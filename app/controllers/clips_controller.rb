@@ -1,5 +1,5 @@
 class ClipsController < ApplicationController
-  before_action :set_clip, only: [:show, :edit, :update, :destroy]
+  before_action :set_clip, only: [:show, :edit, :update, :destroy, :opinion_show]
 
   # GET /clips
   # GET /clips.json
@@ -10,6 +10,7 @@ class ClipsController < ApplicationController
   # GET /clips/1
   # GET /clips/1.json
   def show
+    @opinions = Opinion.where(clip_id: @clip.id)
   end
 
   # GET /clips/new

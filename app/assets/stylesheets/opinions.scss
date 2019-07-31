@@ -1,0 +1,42 @@
+.container1{
+  margin: 10px;
+}
+
+p.opinions_title,p.opinions_body{
+  font-size: 20px;
+  width: 1000px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  line-height: 30px;
+}
+
+th.col1 {
+  width: 200px;
+}
+
+th.colspan {
+  width: 52px;
+}
+
+.tb1{
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  }
+
+label.commenter {
+  margin: 40px 0 -12px;
+}
+
+label.comment_body {
+  margin: 0 0 -12px;
+}
+
+input#comment_commenter {
+  width: 250px;
+  height: 40px;
+}
+
+textarea#comment_body {
+  width: 600px;
+  height: 150px;
+} 
