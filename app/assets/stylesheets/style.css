@@ -3,3 +3,7 @@ table{
 	word-break: break-word;
 	word-wrap: break-word;
 }
+
+.selector-for-some-widget {
+  box-sizing: content-box;
+}

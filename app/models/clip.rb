@@ -2,6 +2,7 @@ class Clip < ApplicationRecord
 has_many :user_clips, dependent: :destroy
 has_many :users, through: :user_clips
 
+has_many :opinions, dependent: :delete_all
 before_save :create_page #メソッド 呼び出し
   def create_page
     begin

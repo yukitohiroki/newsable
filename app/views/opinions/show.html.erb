@@ -1,0 +1,52 @@
+<div class="container" >
+  <p class="opinions_title">
+    <strong>opinion_title:</strong> 
+    <%= @opinion.title %>
+  </p>
+
+  <p class="opinions_body">
+    <strong>opinion:</strong> 
+    <br/>
+    <br/>
+    <%= @opinion.body %>
+  </p>
+  <!-- LikeBtn.com BEGIN -->
+  <a class="likebtn-wrapper" data-theme="likebtn" data-identifier="item_1"　></a>
+  <script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>
+  <!-- LikeBtn.com END -->
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col" class="col1">Commenter</th>
+        <th scope="col" class="col2">Comment</th>
+        <th colspan="1" class="colspan"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @opinion.comments.each do |comment| %>
+        <tr>
+          <td><%= comment.commenter %></td>
+          <td class="tb1"><%= comment.body %></td>
+          <td><%= link_to 'Destroy', clip_opinion_comment_path(@clip,@opinion,comment),
+                    data: {confirm: 'Are You Sure?'},
+                    :method => :delete %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<%= form_for([@clip, @opinion, @opinion.comments.build]) do |f| %>
+  <div class="field">
+    <%= f.label :name, {class: "commenter"} %><br>
+    <%= f.text_field :commenter %>
+  </div>
+  <div class="field">
+    <%= f.label :comment , {class: "comment_body"}%><br>
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %> 
+</div>
