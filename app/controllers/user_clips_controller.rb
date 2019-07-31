@@ -26,7 +26,7 @@ class UserClipsController < ApplicationController
   # POST /user_clips
   # POST /user_clips.json
   def create
-    @clip = Clip.find_or_initialize_by(url: params[:url], opinion_title: params[:opinion_title], opinion_body: params[:opinion_body])
+    @clip = Clip.find_or_initialize_by(url: params[:url])
     @user_clip = current_user.user_clips.build(clip: @clip)
     respond_to do |format|
       if @clip.save && @user_clip.save
@@ -67,6 +67,6 @@ class UserClipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_clip_params
-      params.require(:user_clip).permit(:user_id, :clip_id, opinions_attributes:[:id, :title, :body, :_destroy])
+      params.require(:user_clip).permit(:user_id, :clip_id)
     end
 end 
