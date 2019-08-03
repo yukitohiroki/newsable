@@ -1,36 +1,18 @@
-<h1>Clip Review</h1>
-<table style = "width:100%;" class="table table-bordered">
-  <thead class="thead-dark">
-      <th scope="col">Image</th>
-      <th scope="col">Title</th>
-      <th scope="col">Description</th>
-  </thead>
+<h2>みんなの意見<%= link_to '意見を投稿する', new_clip_opinion_path(@clip), class: "btn btn-danger btn-lg", style: "color:white;margin-left:30px;"  %></h2>
 
-  <tbody style = "width: 100%;">
-    <tr>
-      <td><img class="card-img-right flex-auto d-none d-lg-block" src="<%= @clip.image %>"  style="width: 350px; height: 380px;"></td>
-      <td><%= @clip.title %></td>
-      <td><%= @clip.description %><br><br><a class="btn btn-primary btn-sm" href="<%=  @clip.url %>" target="_blank">Continue reading</a></br></td>
-    </tr>
-  </tbody>
-</table>
-
-<h1>Opinion<%= link_to '意見を投稿する', new_clip_opinion_path(@clip), class: "btn btn-success  btn-sm", style: "color:white;margin-left:30px;"  %></h1>
-<div class="row">
+<div class="card-groups">
 <% @opinions.each do |opinion| %>
-<div class="card mb-3" style="max-width: 600px;">
+<div class="card">
   <div class="row no-gutters">
-    <div class="col-md-2" style ="padding-top: 40px;">
-       <img src="/assets/NotificationIcon@3x.png" class="card-img" alt="profile_photo">
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title"><%= opinion.title %></a></h4>
+        <p style = "font-size:20px"><%= opinion.body %>
+        <br><br><a class="card-text"><%= link_to "コメントを見る", clip_opinion_path(@clip,opinion), data: {"turbolinks" => false}, class: "btn btn-primary", style: "color:white;"%></a></p>
+        </p>
+      </div>
     </div>
-  <div class="col-md-10">
-  <div class="card-body" style ="width:100%;">
-    <h5 class="card-title"><%= opinion.title %></h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <%= link_to "Opinion Review", clip_opinion_path(@clip,opinion), data: {"turbolinks" => false}, class: "btn btn-primary btn-sm", style: "color:white;"%></p>
   </div>
-  </div>
-</div>
 </div>
 <% end %>
 </div>

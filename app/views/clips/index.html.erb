@@ -1,16 +1,20 @@
-<h1>Clips</h1>
-<div class="container">
-  <div class="card-columns">
-    <% @clips.each do |clip| %>
-      <div class="card">
-        <img class="card-img-top" src="<%= clip.image %>" style = "width: 100%;height: 200px" alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title"><%= clip.title %></h5>
-            <p class="card-text"><%= clip.description %></p>
-            <%= link_to 'Show Opinion', clip, class: "btn btn-primary" %>
-          </div>
+<h1>話題のトピックス</h1>
+<div class="card-groups">
+<% @clips.each do |clip| %>
+<div class="card">
+  <div class="row no-gutters">
+    <div class="col-md-4" style = "max-height: 250px;">
+      <img src="<%= clip.image %>" class="card-img" alt="news-image" style = "height:100%;">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title"><%= clip.title %><a><%= clip["publishedAt"] %></a></h4>
+        <p style = "font-size:20px"><%= truncate(clip["description"] , length:100) %>
+        <br><br><%= link_to 'みんなの意見を見る', clip, class: "btn btn-primary"%>
+        </p>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
-
+<% end %>
+</div>

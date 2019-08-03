@@ -14,6 +14,12 @@ class ArticlesController < ApplicationController
     moments = JSON.parse(json)
     @articles = Article.new
     @articles = moments['articles']
+
+    uri1 = URI.parse('https://newsapi.org/v2/top-headlines?country=us&apiKey=9f88e3748ec14d1a98204072a6aa8833')
+    json1 = Net::HTTP.get(uri1)
+    moments1 = JSON.parse(json1)
+    @articles1 = Article.new
+    @articles1 = moments1['articles']
   end
 
   # GET /articles/1

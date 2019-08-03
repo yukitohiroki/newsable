@@ -10,6 +10,48 @@
         <p class="lead" style ="text-align:center;">
           当サイトでは会員登録後に以下の機能がご利用可能です。
         </p>
+        <div style = "text-align: center;">
+        <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#exampleModalScrollable" style="color:white">
+        プライバシーポリシー
+        </button>
+        </div>
+        <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">プライバシーポリシー</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>広告の配信について<br>
+                当サイトは第三者配信の広告サービス「Google Adsense グーグルアドセンス」を利用しています。
+
+                広告配信事業者は、ユーザーの興味に応じた広告を表示するためにCookie（クッキー）を使用することがあります。
+
+                Cookie（クッキー）を無効にする設定およびGoogleアドセンスに関する詳細は「広告 – ポリシーと規約 – Google」をご覧ください。
+
+                第三者がコンテンツおよび宣伝を提供し、訪問者から直接情報を収集し、訪問者のブラウザにCookie（クッキー）を設定したりこれを認識したりする場合があります。</p><br>
+                <p>
+                アクセス解析ツールについて<br>
+                当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。
+
+                このGoogleアナリティクスはトラフィックデータの収集のためにCookieを使用しています。このトラフィックデータは匿名で収集されており、個人を特定するものではありません。この機能はCookieを無効にすることで収集を拒否することが出来ますので、お使いのブラウザの設定をご確認ください。この規約に関して、詳しくはここをクリックしてください。</p><br>
+
+                <p>免責事項<br>
+                当サイトで掲載している画像の著作権・肖像権等は各権利所有者に帰属致します。権利を侵害する目的ではございません。記事の内容や掲載画像等に問題がございましたら、各権利所有者様本人が直接メールでご連絡下さい。確認後、対応させて頂きます。
+
+                当サイトからリンクやバナーなどによって他のサイトに移動された場合、移動先サイトで提供される情報、サービス等について一切の責任を負いません。
+
+                当サイトに掲載された内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。</p><br>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">閉じる</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="masthead-followup row m-0 border border-white">
@@ -21,7 +63,7 @@
       <p style = "font-size: 15px;">今起きている様々なジャンルのニュース記事を一覧に表示します。「最新の記事に更新」ボタンを押せば、ご自身の好きなタイミングで記事を更新することも可能です。</p>
 
       <hr class="half-rule">
-      <a class="btn btn-outline-primary" href="/articles">Browsing all Feeds</a>
+      <a class="btn btn-danger" href="/articles">Browsing all Feeds</a>
     </div>
 
     <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white">
@@ -31,7 +73,7 @@
       <p style = "font-size: 15px;">各ニュース記事の外部リンクから元サイトで記事の詳細内容を閲覧できます。興味のあるニュースのURLを個人のクリップに追加するだけで、他のユーザーに記事が共有されます。</p>
 
       <hr class="half-rule">
-      <a class="btn btn-outline-primary" href="/user_clips">Recommend the News</a>
+      <a class="btn btn-danger" href="/user_clips">Recommend the News</a>
     </div>
 
     <div class="col-12 col-md-4 p-3 p-md-5 bg-light border border-white">
@@ -39,10 +81,10 @@
       <svg xmlns="/" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="text-primary mb-2" viewBox="0 0 32 32" focusable="false"><title>Lightning</title><path d="M18 13l8-11L8 13l6 6-8 11 18-11z"></path></svg>
       <h3>Exchange</h3>
       <p style = "font-size: 15px;">
-        NewsAbleは、全てのユーザーがニュース記事に意見を投稿することができます。いいね・コメント機能を備えており、ユーザー同士の交流を目的としたBtoB形式のWebサービスです。
+        News は、全てのユーザーがニュース記事に意見を投稿することができます。いいね・コメント機能を備えており、ユーザー同士の交流を目的としたBtoB形式のWebサービスです。
       </p>
       <hr class="half-rule">
-      <a href="/clips" class="btn btn-outline-primary">Exchange of Opinions</a>
+      <a href="/clips" class="btn btn-danger">Exchange of Opinions</a>
     </div>
   </div>
 </main>

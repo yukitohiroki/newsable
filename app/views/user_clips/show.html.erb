@@ -1,15 +1,16 @@
-<table style = "width:100%;" class="table table-bordered">
-  <thead class="thead-dark">
-      <th scope="col">Image</th>
-      <th scope="col">Title</th>
-      <th scope="col">Description</th>
-  </thead>
-
-  <tbody style = "width: 100%;">
-    <tr>
-      <td><img class="card-img-right flex-auto d-none d-lg-block" src="<%= @clip.image %>"  style="width: 350px; height: 380px;"></td>
-      <td><%= @clip.title %></td>
-      <td><%= @clip.description %><br><br><a class="btn btn-primary btn-sm" href="<%=  @clip.url %>" target="_blank">Continue reading</a></br></td>
-    </tr>
-  </tbody>
-</table>
+<% clip = @user_clip.clip %>
+<div class="card-groups">
+<div class="card">
+    <div class="col-md-10">
+      <img src="<%= @clip.image %>" class="card-img" alt="news-image">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h7 class="card-title"><%= @clip.title %></h7>
+        <%= @clip.description %>
+        <p><a href="<%=  @clip.url %>" target="_blank">記事の続きを読む</a></p>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,3 +1,9 @@
+@media screen and (min-width:960px) and (max-width:1279px) {
+ .card mb-3  {
+    width:1000px;
+  }
+}
+
 table{
 	width: 100%;
 	word-break: break-word;
@@ -6,4 +12,38 @@ table{
 
 .selector-for-some-widget {
   box-sizing: content-box;
+}
+
+.bg-danger{
+  background-color:DarkSlateGrey  !important;
+}
+
+.btn-danger{
+  background-color:DarkSlateGrey  !important;
+  border-style: none;
+}
+
+.btn-primary{
+background-color:#023456 !important;
+}
+
+a:visited {
+    color: blue;
+}
+
+a {
+    color: blue;
+    font-size: 15px;
+}
+
+element.style {
+    color: black;
+}
+
+div {
+	font-size:15px;
+}
+
+a:visited {
+	color: white;
 }
