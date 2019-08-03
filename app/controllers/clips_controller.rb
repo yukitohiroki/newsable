@@ -52,6 +52,9 @@ class ClipsController < ApplicationController
     end
   end
 
+  def search
+    @clips = Clip.search(params[:search])
+  end
   # DELETE /clips/1
   # DELETE /clips/1.json
   def destroy

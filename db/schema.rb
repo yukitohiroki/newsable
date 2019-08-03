@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_31_113502) do
+ActiveRecord::Schema.define(version: 2019_08_03_173934) do
 
   create_table "Articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -52,6 +52,17 @@ ActiveRecord::Schema.define(version: 2019_07_31_113502) do
     t.index ["opinion_id"], name: "index_comments_on_opinion_id"
   end
 
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "clip_id"
+    t.bigint "opinion_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clip_id"], name: "index_likes_on_clip_id"
+    t.index ["opinion_id"], name: "index_likes_on_opinion_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "opinions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "title"
     t.text "body"
@@ -59,6 +70,7 @@ ActiveRecord::Schema.define(version: 2019_07_31_113502) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "user_clips", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -89,6 +101,9 @@ ActiveRecord::Schema.define(version: 2019_07_31_113502) do
   add_foreign_key "article_categories", "articles"
   add_foreign_key "article_categories", "categories"
   add_foreign_key "comments", "opinions"
+  add_foreign_key "likes", "clips"
+  add_foreign_key "likes", "opinions"
+  add_foreign_key "likes", "users"
   add_foreign_key "user_clips", "clips"
   add_foreign_key "user_clips", "users"
 end

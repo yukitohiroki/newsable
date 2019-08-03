@@ -8,6 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d3c52cf7c2a16f6"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script src='js/bootstrap.js'></script>
@@ -43,9 +44,7 @@
     <div class="jumbotron text-center hero">
     <div class="container">
        <h1>News Ink</h1>
-       <p>News Inkはニュースを共有するためのプラットフォームです</p>
-       <%= link_to "Sing Up Now!",
-        new_user_registration_path, class: "btn btn-danger" , data: {"turbolinks" => false}, :style=>"color:white;" %>
+       <p>News Inkはニュースを共有するための<br>プラットフォームです</p>
     </div>
     </div>
     <% end %>
@@ -91,6 +90,8 @@
     <br><div class="addthis_inline_share_toolbox_nenf" style = "text-align:center;"></div>
     <footer class="footer bg-danger">
       <div class="text-mute" style = "color:white;text-align:left;margin-left: 20px;">© Copyright 2019 All Rights Reserved
-      <br><a href="http://tayori.com/form/64410234d28d9e9b166d7579922566c0736431cb" target="_blank" style="color:white;">-お問い合わせ-</a></div>
+      <br><a href="http://tayori.com/form/64410234d28d9e9b166d7579922566c0736431cb" target="_blank" style="color:white;">お問い合わせ-</a><a data-toggle="modal" data-target="#exampleModalScrollable" style="color:white">
+        プライバシーポリシー</a></div>
+    </a>
     </footer>
 </html>

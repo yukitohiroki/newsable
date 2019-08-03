@@ -22,6 +22,6 @@ class OpinionsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def opinion_params
-  params.require(:opinion).permit(:title, :body, :clip_id).merge(user_id: current_user.id)
+  params.require(:opinion).permit(:name, :title, :body, :clip_id).merge(user_id: current_user.id)
   end
 end

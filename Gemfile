@@ -39,6 +39,8 @@ gem 'pry-rails'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'jquery-rails'
+
 group :production do
   gem 'pg'
 end
