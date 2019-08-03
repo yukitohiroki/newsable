@@ -1,0 +1,10 @@
+<% if Like.find_by(user_id: current_user.id, opinion_id: opinion.id, clip_id: @clip.id)%>
+  <%= link_to clip_opinion_likes_path(@clip, opinion),{ method: :delete, class: "heart-link", remote: true} do %>
+    <i class="material-icons" id="favorite_icon">favorite</i>いいね
+  <% end %>
+<% else %>
+  <%= link_to clip_opinion_like_path(@clip, opinion),{ method: :post, class: "heart-link", remote: true} do %>
+    <i class="material-icons">favorite_border</i>いいね
+  <% end %>
+<% end %>
+<%= opinion.likes.length %>

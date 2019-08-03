@@ -40,3 +40,46 @@ textarea#comment_body {
   width: 600px;
   height: 150px;
 } 
+
+.card-body{
+  position: relative;
+}
+
+p.likes_count{
+  position: absolute;
+  bottom: 30px;
+  right: 500px;
+}
+
+table.table.table-bordered.table.table-sm {
+  position: relative;
+}
+
+#like-6{
+  background-color: white;
+  width: 78px;
+  position: absolute;
+  top: 422px;
+  right: 323px;
+}
+
+i#favorite_icon {
+  color: #a00f0f;
+}
+
+a.heart-link {
+  overflow : hidden;
+  outline : hidden;
+}
+
+a.heart-link:hover {
+  color: black;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.material-icons {
+  border: hidden;
+  color: darkgray;
+  background-color: white;
+} 

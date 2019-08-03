@@ -23,8 +23,4 @@ class Article < ApplicationRecord
    Article.last
   end
 
-  def self.search(search)
-    search ? where('CONCAT(title,body)  LIKE ?', "%#{search}%") : all
-  end
-
 end
