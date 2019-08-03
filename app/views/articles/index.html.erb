@@ -1,20 +1,42 @@
-<h1 style="display: inline;">Articles<input type="button" value="最新の記事に更新" onclick="window.location.reload();" class="btn btn-success  btn-sm" style = "margin-left: 20px;"></h1>
-<table style = "width:100%;" class="table table-bordered">
-  <thead class="thead-dark">
-      <th scope="col">Image</th>
-      <th scope="col">Title</th>
-      <th scope="col">Description</th>
-    </tr>
-  </thead>
-
-  <tbody style = "width: 100%;">
-      <tr>
-        <% @articles.each do |article| %>
-        <td><img class="card-img-right flex-auto d-none d-lg-block" src="<%= article["urlToImage"] %>"  style="width: 200px; height: 250px;"></td>
-        <td><%= article["title"] %><br><%= article["publishedAt"] %></br></td>
-        <td><%= article["description"] %><br><br><a class="btn btn-primary btn-sm" href="<%= article["url"]  %>" target="_blank">Continue Reading</a></br></td>
-      </tr>
-    <% end %>
+<div style = "text-align: center;"><input type="button" value="最新の記事に更新" onclick="window.location.reload();" class="btn btn-danger btn-lg"></div>
+<h1>国内トピックス</h1>
+<div class="card-groups">
+<% @articles.each do |article| %>
+<div class="card">
+  <div class="row no-gutters">
+    <div class="col-md-4" style = "max-height: 250px;">
+      <img src="<%= article["urlToImage"] %>" class="card-img" alt="news-image" style = "height:100%;">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title"><%= article["title"] %><a><%= article["publishedAt"] %></a></h4>
+        <p style = "font-size:20px"><%= truncate(article["description"] , length:100) %>
+        <br><br><a class="btn btn-primary" href="<%= article["url"]  %>" target="_blank">記事の続きを読む</a>
+        </p>
+      </div>
+    </div>
   </div>
-  </tbody>
-</table>
+</div>
+<% end %>
+</div>
+
+<br><h1>海外トピックス</h1>
+<div class="card-groups" style ="background-color: black;">
+<% @articles1.each do |article| %>
+<div class="card">
+  <div class="row no-gutters">
+    <div class="col-md-4" style = "height:auto;">
+      <img src="<%= article["urlToImage"] %>" class="card-img" alt="news-image" style = "height:100%;">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= article["title"] %><a><%= article["publishedAt"] %></a></h5>
+        <p style = "font-size:20px"><%= article["description"] %>
+        <br><br><a class="btn btn-primary" href="<%= article["url"]  %>" target="_blank">記事の続きを読む</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+</div>

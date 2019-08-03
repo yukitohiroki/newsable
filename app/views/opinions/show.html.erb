@@ -1,52 +1,48 @@
-<div class="container" style = "width:70%;">
-  <h3>Opinion Review</h3>
-  <table class="table table-bordered table table-sm" style ="height: 150px;margin-bottom: 100px;">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col" class="col1">Title</th>
-        <th scope="col" class="col2">Opinion</th>
-      </tr>
-    </p>
-    </thead>
-    <tbody>
-      <tr>
-        <td style = "font-size: 20px;"><%= @opinion.title %></td>
-        <td style = "font-size: 20px;"><%= @opinion.body %></td>
-      </tr>
-    </tbody>
-  </table>
-  <table class="table table-bordered table-sm">
-    <thead class="thead-info bg-info">
-      <tr>
-        <th scope="col" class="col1">Commenter</th>
-        <th scope="col" class="col2">Comment</th>
-        <th colspan="1" class="colspan"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <h3>Comment Review</h3>
-      <% @opinion.comments.each do |comment| %>
-        <tr>
-          <td class="tb2"><%= comment.commenter %></td>
-          <td class="tb2"><%= comment.body %></td>
-          <td class="tb2"><%= link_to '削除', clip_opinion_comment_path(@clip,@opinion,comment),
-                    data: {confirm: 'コメントを削除してもよろしいですか?'},
-                    :method => :delete %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="container">
+<h3>コメント</h3>
+<div class="card-groups">
+<% @opinion.comments.each do |comment| %>
+<div class="card">
+  <div class="row no-gutters">
+    <h4 class="card-title" style = "margin:20px;"><%= comment.commenter %><br><span style = "font-size:15px;"><%= comment.created_at %></span></h4>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p style = "font-size:20px"><%= comment.body %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+</div><br>
 
-    <%= form_for([@clip, @opinion, @opinion.comments.build]) do |f| %>
-    <div class="form-group">
-      <%= f.text_field :commenter, class: "form-control" , placeholder: "名前" %>
-    </div>
-    <div class="form-group">
-      <%= f.text_area :body, class: "form-control" , placeholder: "200文字まで"%>
-    </div>
-    <div class="actions">
-      <%= f.submit "Create",  class: "btn btn-primary",  style: "width:170px;" %>
-    </div>
-    <% end %>
 
+<script language="JavaScript">
+<!--
+var char_limit = 10;
+function set_limit(that){
+if(that.value.length > char_limit){
+alert('入力文字数が '+char_limit+'文字を越えました (^^);');
+that.focus();
+return false;
+}
+return true;
+}
+// -->
+</script>
+
+<h3>コメント投稿</h3>
+<form>
+  <%= form_for([@clip, @opinion, @opinion.comments.build]) do |f| %>
+  <div class="form-group">
+    <%= f.text_field :commenter, class: "form-control" , id: "exampleFormControlTextarea1", placeholder: "名前", style: "width:200px;"%>
+  </div>
+  <div class="form-group">
+    <%= f.text_area :body, class: "form-control" ,  id: "exampleFormControlTextarea1", rows: "5", placeholder: "200文字まで",  style: "font-size:20px"%>
+  </div>
+  <div class="actions">
+    <%= f.submit "投稿する",  class: "btn btn-danger",  style: "width:170px;" %>
+  </div>
+  <% end %>
+</form>
 </div>

@@ -1,26 +1,27 @@
-<h1>User Clips</h1>
-<div class="container">
-<table class="table table-bordered table table-hover table-sm">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">User</th>
-      <th scope="col">Clip</th>
-      <th colspan="5"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @user_clips.each do |user_clip| %>
-      <tr>
-        <td><%= current_user.email %></td>
-        <% clip = user_clip.clip %>
-        <td><%= clip.title %></td>
-        <td><%= image_tag clip.image, width: 100 if clip.image %></td>
-        <td><%= link_to 'Show', user_clip %></td>
-        <td><%= link_to 'Edit', edit_user_clip_path(user_clip) %></td>
-        <td><%= link_to 'Destroy', user_clip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div style ="text-align: center;">
+<% if user_signed_in? %>
+<%= link_to 'お気に入りを追加', new_user_clip_path,  class: "btn btn-danger btn-lg" ,:style=>"color:white;" , data: {"turbolinks" => false} %>
+<% end %>
+</div>
+<h1>お気に入り</h1>
+<div class="card-groups">
+<% @user_clips.each do |user_clip| %>
+<div class="card">
+  <div class="row no-gutters">
+    <% clip = user_clip.clip %>
+    <div class="col-md-4" style = "max-height: 230px;width: 200px;">
+      <img src="<%= clip.image %>" class="card-img" alt="news-image" style = "height:100%;">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title"><%= clip.title %><a><%= clip["publishedAt"] %></a></h4>
+        <p style = "font-size:20px"><%= clip.description %>
+        <br><br><a href="<%=  clip.url %>" target="_blank" , class="btn btn-primary btm-sn">記事の続きを読む</a>
+        <%= link_to '削除', user_clip, method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
 </div>
