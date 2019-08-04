@@ -17,7 +17,7 @@
         <h4 class="card-title"><%= clip.title %><a><%= clip["publishedAt"] %></a></h4>
         <p style = "font-size:20px"><%= clip.description %>
         <br><br><a href="<%=  clip.url %>" target="_blank" , class="btn btn-primary btm-sn">記事の続きを読む</a>
-        <%= link_to '削除', user_clip, method: :delete, data: { confirm: '本当に削除してよろしいですか?' } %>
+        <%= link_to '削除', user_clip, method: :delete, data: { confirm: '本当に削除してよろしいですか?' } , class: "btn btn-secondary btm-sn"%>
         </p>
       </div>
     </div>

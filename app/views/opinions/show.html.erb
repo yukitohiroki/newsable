@@ -4,7 +4,7 @@
 <% @opinion.comments.each do |comment| %>
 <div class="card">
   <div class="row no-gutters">
-    <h4 class="card-title" style = "font-size: 20px;margin-top: 20px;min-width: 150px;"><%= comment.commenter %><br><%= comment.created_at %></span></h4>
+    <h4 class="card-title" style = "font-size: 20px;margin-top: 20px;min-width: 150px;"><%= comment.commenter %><br><%= comment.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M') %></span></h4>
     <div class="col-md-8">
       <div class="card-body" style = "font-size:20px">
         <%= comment.body %>
