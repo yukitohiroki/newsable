@@ -1,20 +1,22 @@
 <div style = "text-align: center;"><%= link_to '意見を投稿する', new_clip_opinion_path(@clip), data: {"turbolinks" => false}, class: "btn btn-danger btn-lg", style: "color:white;margin-left:30px;"  %></div>
 <h2>みんなの意見</h2>
-<div class="card-groups">
 <% @opinions.each do |opinion| %>
-<div class="card">
-  <div class="row no-gutters">
-    <p style="font-size: 25px;margin-top: 30px;min-width: 150px;"><%= opinion.name %><br><br><%= opinion.created_at.strftime('%Y/%m/%d %H:%M')  %></p>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h4 class="card-title"><%= opinion.title %></a></h4>
-        <p style = "font-size:20px"><%= opinion.body %>
-        <br><br><a class="card-text"><%= link_to "コメントを見る", clip_opinion_path(@clip,opinion), data: {"turbolinks" => false}, class: "btn btn-primary", style: "color:white;"%></a>
-          <%= render partial: "opinions/opinion", locals: { opinion: opinion } %>
+<div class="container">
+  <div class="card-groups">
+    <div class="card">
+      <div class="row no-gutters">
+        <p style="font-size: 25px;margin-top: 30px;min-width: 150px;"><%= opinion.name %><br><br><%= opinion.created_at.strftime('%Y/%m/%d %H:%M')  %></p>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h4 class="card-title"><%= opinion.title %></a></h4>
+            <p style = "font-size:20px"><%= opinion.body %>
+            <br><br><a class="card-text"><%= link_to "コメントを見る", clip_opinion_path(@clip,opinion), data: {"turbolinks" => false}, class: "btn btn-primary", style: "color:white;"%></a>
+              <%= render partial: "opinions/opinion", locals: { opinion: opinion } %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
 <% end %>
-</div>

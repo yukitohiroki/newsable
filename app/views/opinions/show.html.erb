@@ -1,18 +1,24 @@
 <div class="container">
-<h3>コメント</h3>
-<div class="card-groups">
-<% @opinion.comments.each do |comment| %>
-<div class="card">
-  <div class="row no-gutters">
-    <h4 class="card-title" style = "font-size: 20px;margin-top: 20px;min-width: 150px;"><%= comment.commenter %><br><%= comment.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M') %></span></h4>
-    <div class="col-md-8">
-      <div class="card-body" style = "font-size:20px">
-        <%= comment.body %>
+  <h3>コメント</h3>
+    <div class="card-groups">
+    <% if @opinion.comments.blank? %>
+    <div class="card-body" style = "font-size:20px">
+    <%= "コメントはありません" %>
+    <% else %>
+    <% @opinion.comments.each do |comment| %>
+    <div class="card">
+      <div class="row no-gutters">
+        <h4 class="card-title" style = "font-size: 20px;margin-top: 20px;min-width: 150px;"><%= comment.commenter %><br><%= comment.created_at.in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M') %></span></h4>
+        <div class="col-md-8">
+          <div class="card-body" style = "font-size:20px">
+            <%= comment.body %>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-<% end %>
+    <% end %>
+    <% end %>
+  </div><br>
 </div><br>
 
 

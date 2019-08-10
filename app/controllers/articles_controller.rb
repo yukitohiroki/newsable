@@ -1,25 +1,23 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]  
-
+  include ApiHelper
   # GET /articles
   # GET /articles.json
   def index
-    require 'net/http'
-    require 'uri'
-    require 'json'
+    require "api_helper"
 
     uri = URI.parse('https://newsapi.org/v2/top-headlines?country=jp&category&apiKey=9f88e3748ec14d1a98204072a6aa8833') #news_API
     json = Net::HTTP.get(uri)
-    moments = JSON.parse(json)
+    result_jp = JSON.parse(json)
     @articles = Article.new
-    @articles = moments['articles']
+    @articles = result_jp['articles']
 
     uri1 = URI.parse('https://newsapi.org/v2/top-headlines?country=us&apiKey=9f88e3748ec14d1a98204072a6aa8833')
     json1 = Net::HTTP.get(uri1)
-    moments1 = JSON.parse(json1)
+    result_us = JSON.parse(json1)
     @articles1 = Article.new
-    @articles1 = moments1['articles']
+    @articles1 = result_us['articles']
   end
 
   # GET /articles/1
