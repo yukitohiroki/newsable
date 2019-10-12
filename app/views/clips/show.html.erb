@@ -1,22 +1,77 @@
-<div style = "text-align: center;"><%= link_to '意見を投稿する', new_clip_opinion_path(@clip), data: {"turbolinks" => false}, class: "btn btn-danger btn-lg", style: "color:white;margin-left:30px;"  %></div>
-<h2>みんなの意見</h2>
-<% @opinions.each do |opinion| %>
-<div class="container">
-  <div class="card-groups">
-    <div class="card">
-      <div class="row no-gutters">
-        <p style="font-size: 25px;margin-top: 30px;min-width: 150px;"><%= opinion.name %><br><br><%= opinion.created_at.strftime('%Y/%m/%d %H:%M')  %></p>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h4 class="card-title"><%= opinion.title %></a></h4>
-            <p style = "font-size:20px"><%= opinion.body %>
-            <br><br><a class="card-text"><%= link_to "コメントを見る", clip_opinion_path(@clip,opinion), data: {"turbolinks" => false}, class: "btn btn-primary", style: "color:white;"%></a>
-              <%= render partial: "opinions/opinion", locals: { opinion: opinion } %>
-            </div>
-          </div>
-        </div>
-      </div>
+<div class="row">
+  <div class="col-md-8">
+<ol class="breadcrumb mt-4">
+  <li class="breadcrumb-item">
+    <%= link_to "クリップ一覧", clips_url %></li>
+  <li class="breadcrumb-item">
+    <%= link_to @clip.title.truncate(25), @clip %></li>
+</ol>
+<div class="row">
+  <h1><%= @clip.title %></h1>
+  <div class="col-md-4">
+    <%= image_tag @clip.image,class: 'img-fluid' if @clip.image %>
+  </div>
+  <div class="col-md-8">
+    <%=link_to @clip.url, @clip.url,target: '_blank' %>
+    <p><%= truncate(@clip["description"] , length:50) %></p>
+    <%= fa_icon 'bookmark 2x', style: "color: orange" %>
+    <%= @clip.user_clips_count %>クリップ
+    <%= fa_icon 'users 2x', style: "color: orange" %>
+    <%= @clip.opinions_count %>オピニオン
+  </div>
+  <div class="col-md-4">
+  </div>
+</div>
+<h4>オピニオンする</h4>
+<div class="opinion-form">
+  <% if @opinion && @opinion.errors.any? %>
+    <div id="error_explanation">
+      <h5>
+       <%= pluralize(@opinion.errors.count, "error") %>
+      </h5>
+      <ul>
+      <% @opinion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
     </div>
+  <% end %>
+  <%= form_for [@clip, @opinion] do |f| %>
+    <%= f.text_field :title, class: 'form-control my-2',  placeholder: 'オピニオンタイトルを書く' %>
+    <%= f.text_area :body, class: 'form-control', placeholder: 'オピニオン本文を書く' %>
+    <%= f.submit "オピニオン作成", class: 'btn btn-primary my-2' %>
+  <% end %>
+</div>
+<h4>この記事に関するオピニオン</h4>
+<% @clip.opinions.each do |opinion| %>
+<div class="row">
+  <div class="col-md-8">
+  <h5><%= opinion.title %></h5>
+  <%= opinion.user.email if opinion.user %>
+  <%= simple_format opinion.body%>
+  <%= link_to  "続きを読む" ,clip_opinion_path(@clip) %>
+  <div class="text-right small">
+    <span class="text-muted">
+       <%= jp_date opinion.created_at %>
+    </span>
+  </div>
+  </div>
+  <div class="col-md-4">
   </div>
 </div>
 <% end %>
+</div>
+  <div class="col-md-4">
+    <h4>人気のオピニオン</h4>
+    <% @clips.each do |clips| %>
+    <li><%= link_to clips.title.truncate(25), clips %>
+    <%=link_to clips.url, clips.url,target: '_blank' %>
+    <p><%= truncate(clips["description"] , length:50) %></p>
+    <%= fa_icon 'bookmark 2x', style: "color: orange" %>
+    <%= clips.user_clips_count %>クリップ
+    <%= fa_icon 'users 2x', style: "color: orange" %>
+    <%= clips.opinions_count %>オピニオン
+    </li>
+    <% end %>
+  </div>
+</div>

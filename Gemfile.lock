@@ -89,6 +89,9 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.8.2)
+      devise (>= 4.6)
+    devise-i18n-views (0.3.7)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     erubi (1.8.0)
@@ -106,6 +109,8 @@ GEM
       faraday (>= 0.7.4, < 1.0)
     fastimage (2.1.5)
     ffi (1.11.1)
+    font-awesome-rails (4.7.0.5)
+      railties (>= 3.2, < 6.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     http-cookie (1.0.3)
@@ -265,6 +270,9 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  devise-i18n
+  devise-i18n-views
+  font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails
   jquery-turbolinks

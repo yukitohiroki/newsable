@@ -1,6 +1,6 @@
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d3c52cf7c2a16f6"></script>
-<div class ="container" style = "width:60%;">
-<h1 style = "text-align: center;">Sign up</h1>
+<div class ="container">
+<h4 style = "text-align: center;">サインアップ</h4>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
   <div class="form-group">
@@ -22,7 +22,7 @@
   </div></br>
 
   <div class="actions">
-    <%= f.submit "Sign up", class: "btn btn-primary",  style: "width:100%;"%>
+    <%= f.submit "サインアップする", class: "btn btn-primary"%>
   </div>
 <% end %>
 

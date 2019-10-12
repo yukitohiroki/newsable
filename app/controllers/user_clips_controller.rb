@@ -30,7 +30,7 @@ class UserClipsController < ApplicationController
     @user_clip = current_user.user_clips.build(clip: @clip)
     respond_to do |format|
       if @clip.save && @user_clip.save
-        format.html { redirect_to user_clips_url, notice: '...' }
+        format.html { redirect_to user_clips_url, notice: t('user_clips_thanks')  }
       end
     end
   end

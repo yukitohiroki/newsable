@@ -10,7 +10,9 @@ class ClipsController < ApplicationController
   # GET /clips/1
   # GET /clips/1.json
   def show
-    @opinions = Opinion.where(clip_id: @clip.id)
+    @opinion = Opinion.new
+    @clips = Clip.all.order(opinions_count: "desc").limit(8)
+    @clip = Clip.find(params[:id])
   end
 
   # GET /clips/new
@@ -68,11 +70,11 @@ class ClipsController < ApplicationController
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_clip
-  @clip = Clip.find(params[:id])
+   @clip = Clip.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def clip_params
-  params.require(:clip).permit(:url, :title, :description, :image)
+    params.require(:clip).permit(:url, :title, :description, :image)
   end
 end

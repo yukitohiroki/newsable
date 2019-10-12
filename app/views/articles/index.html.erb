@@ -1,6 +1,6 @@
-<div style = "text-align: center;"><input type="button" value="最新の記事に更新" onclick="window.location.reload();" class="btn btn-danger btn-lg"></div>
-<h1>国内トピックス</h1>
-<div class="card-groups">
+<div style = "text-align: center;"><input type="button" value="最新の記事に更新" onclick="window.location.reload();" class="btn btn-danger"></div>
+<h4>トピックス</h4>
+<div class="card-groups" style ="background-color: black;">
 <% @articles.each do |article| %>
 <div class="card">
   <div class="row no-gutters">
@@ -9,29 +9,9 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h4 class="card-title"><%= article["title"] %><a><%= article["publishedAt"].in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M')  %></a></h4>
-        <p style = "font-size:20px"><%= truncate(article["description"] , length:100) %>
-        <br><br><a class="btn btn-primary" href="<%= article["url"]  %>" target="_blank">記事の続きを読む</a>
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-<% end %>
-</div>
-
-<br><h1>海外トピックス</h1>
-<div class="card-groups" style ="background-color: black;">
-<% @articles1.each do |article| %>
-<div class="card">
-  <div class="row no-gutters">
-    <div class="col-md-4" style = "max-height: 250px;">
-      <img src="<%= article["urlToImage"] %>" class="card-img" alt="news-image" style = "height:100%;">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><%= article["title"] %><a><%= article["publishedAt"].in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M')  %></a></h5>
-        <p style = "font-size:20px"><%= article["description"] %>
+        <h5 class="card-title"><%= article["title"] %></h5>
+        <%= article["publishedAt"].in_time_zone('Tokyo').strftime('%Y/%m/%d %H:%M')%> post<br><br>
+        <p><%= truncate(article["description"] , length:100) %>
         <br><br><a class="btn btn-primary" href="<%= article["url"]  %>" target="_blank">記事の続きを読む</a>
         </p>
       </div>

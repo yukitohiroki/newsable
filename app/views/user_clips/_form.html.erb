@@ -1,20 +1,10 @@
 <%= form_with(model: user_clip, local: true) do |form| %> 
- <% if clip = user_clip.clip %>
-  <% if clip.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(clip.errors.count, "error") %>prohibited this user_clip from being saved:</h2>
-      <ul>
-        <% clip.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-<% end %>
-  <div class="form-group">
-    <%= text_field_tag :url,'', class: "form-control", id: "exampleFormControlTextarea1", rows: "5" , placeholder: "ニュース記事のURLを入力", style: "font-size:20px"%>
-  </div>
-  <div class="actions">
-    <%= form.submit "追加する",  class: "btn btn-danger",  style: "width:150px;"%>
-  </div>
+<div class="row">
+   <div class="col-md-8 mt-2">
+       <%= text_field_tag :url, user_clip.clip&.url, class: 'form-control', placeholder: 'urlをコピペしてください' %>
+   </div>
+   <div class="col-md-4 mt-2">
+       <%= form.submit 'クリップを保存する', class: 'btn btn-primary ' %>
+   </div>
+</div>
 <% end %>

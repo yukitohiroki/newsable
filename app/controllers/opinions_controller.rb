@@ -2,6 +2,7 @@ class OpinionsController < ApplicationController
 
   def show
     @clip = Clip.find(params[:clip_id])
+    @opinions = @clip.opinions
     @opinion = Opinion.find(params[:id])
   end
 
@@ -13,15 +14,23 @@ class OpinionsController < ApplicationController
 
   def create
     @clip = Clip.find(params[:clip_id])
-    # @comment = @post.comments.create(params[:comment])
-    @opinion = @clip.opinions.create(opinion_params)
-    redirect_to clip_path(@clip)
+    @opinion_params = opinion_params.merge(clip: @clip)
+    @opinion = current_user.opinions.build(@opinion_params)
+    @opinion.clip = @clip
+    respond_to do |format|
+      if @opinion.save
+              # 以下の部分を変更
+        format.html { redirect_to @clip, notice: t('opinion_thanks') }
+      else
+        render 'clips/show'
+      end
+    end
   end
 
   private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def opinion_params
-  params.require(:opinion).permit(:name, :title, :body, :clip_id).merge(user_id: current_user.id)
+    params.require(:opinion).permit(:name, :title, :body, :clip_id).merge(user_id: current_user.id)
   end
 end
