@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>NewsInk</title>
+    <title>News Ink</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -48,7 +48,7 @@
     <% end %>
   <body onLoad="rCheck()">
      <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
-      <%= link_to "Home", root_path, method: :get,:style=>"color:white;padding-left:10px;", data: {"turbolinks" => false} %></span>
+      <a class="navbar-brand" href="/" data-turbolinks="false" >News Ink</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style =  "text-align:left;">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -56,40 +56,58 @@
         <ul class="navbar-nav">
           <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "Articles", articles_path, method: :get,:style=>"color:white;padding-left:10px;", data: {"turbolinks" => false} %>
+              <%= link_to "トピックス", articles_path, method: :get,:style=>"color:white;padding-left:10px;", data: {"turbolinks" => false} %>
             </li>
             <li class="nav-item">
-              <%= link_to "Clips", clips_path, method: :get,:style=>"color:white;padding-left:10px;" , data: {"turbolinks" => false} %>
+              <%= link_to "ユーザークリップ", clips_path, method: :get,:style=>"color:white;padding-left:10px;" , data: {"turbolinks" => false} %>
             </li>
             <li class="nav-item">
-              <%= link_to "User-Clips", user_clips_path, method: :get,:style=>"color:white;padding-left:10px;" , data: {"turbolinks" => false} %>
+              <%= link_to "マイクリップ", user_clips_path, method: :get,:style=>"color:white;padding-left:10px;" , data: {"turbolinks" => false} %>
             </li>
             <li class="nav-item">
-              <span style = "color:white;padding-left:10px;"><%= current_user.email %>としてログイン中</span>
+              <span style = "color:white;padding-left:10px;"><%= current_user.email %></span>
             </li>
             <li class="nav-item">
-              <%= link_to "Log out", destroy_user_session_path, method: :delete,:style=>"color:white;padding-left:10px;" , data: {"turbolinks" => false} %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete,:style=>"color:white;padding-left:10px;" , data: {"turbolinks" => false} %>
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to "Log in", new_user_session_path,:style=>"color:white;padding-left:10px;"  , data: {"turbolinks" => false} %>
+              <%= link_to "ログイン", new_user_session_path,:style=>"color:white;padding-left:10px;"  , data: {"turbolinks" => false} %>
             </li>
           <% end %>
         </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <%= link_to "新規クリップ", new_user_clip_path, class: 'btn btn-outline-light' %>
+          </li>
+        </ul>
       </div>
     </nav>
-    <br><div class="addthis_inline_share_toolbox_nenf" style = "text-align:center;"></div>
-    <div class="container" style = "width: 100%;">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if notice || alert %>
+      <div class="alert alert-warning">
+        <div class="container">
+          <%= notice %>
+          <%= alert %>
+          <button type="button" class="close" 
+        data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    <% end %>
+    <div class="addthis_inline_share_toolbox_nenf"  style = "text-align:center;padding-top: 30px;"></div>
+    <div class="container content" style = "width: 100%;padding-top: 100px;">
      <%= yield %>
     </div>
     </body>
-    <br><div class="addthis_inline_share_toolbox_nenf" style = "text-align:center;"></div>
-    <footer class="footer bg-danger">
-      <div class="text-mute" style = "color:white;text-align:left;margin-left: 20px;">© Copyright 2019 All Rights Reserved
-      <br><a href="http://tayori.com/form/64410234d28d9e9b166d7579922566c0736431cb" target="_blank" style="color:white;">お問い合わせ-</a><a data-toggle="modal" data-target="#exampleModalScrollable" style="color:white">
-        プライバシーポリシー</a></div>
-    </a>
-    </footer>
+    <div class="addthis_inline_share_toolbox_nenf" style = "text-align:center;padding-bottom: 100px;"></div>
+    <div class="footer">
+      <div class="container">
+        <ul style = "list-style: none;">
+          <li>© Copyright 2019 All Rights Reserved</li>
+          <li>お問い合わせ</li>
+          <li>プライバシーポリシー</li>
+          <li>ヘルプ</li>
+        </ul>
+      </div>
 </html>

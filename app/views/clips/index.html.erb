@@ -1,6 +1,6 @@
-<h1>話題のトピックス<%= form_tag(search_clips_path,:method => 'get', class: "btn btn-outline-light btn-lg") do %>
+<h4>ユーザークリップ<%= form_tag(search_clips_path,:method => 'get', class: "btn btn-outline-light btn-lg") do %>
   <%= text_field_tag :search %>
-  <%= submit_tag '検索', :name => nil %></h1>
+  <%= submit_tag '検索', :name => nil %></h4>
 <% end %>
 <div class="card-groups">
 <% @clips.each do |clip| %>
@@ -12,8 +12,12 @@
     <div class="col-md-8">
       <div class="card-body">
         <h4 class="card-title"><%= clip.title %><a><%= clip["publishedAt"] %></a></h4>
-        <p style = "font-size:20px"><%= truncate(clip["description"] , length:100) %>
-        <br><br><%= link_to 'みんなの意見を見る', clip, class: "btn btn-primary", data: {"turbolinks" => false}%>
+        <p><%= truncate(clip["description"] , length:100) %></p>
+        <p><%= fa_icon 'bookmark 2x', style: "color: orange" %>
+        <%= clip.user_clips_count %>クリップ
+        <%= fa_icon 'users 2x', style: "color: orange" %>
+        <%= clip.opinions_count %>オピニオン
+        <br><br><%= link_to 'オピニオン一覧', clip, class: "btn btn-primary", data: {"turbolinks" => false}%>
         </p>
       </div>
     </div>

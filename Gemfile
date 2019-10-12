@@ -41,6 +41,12 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'jquery-rails'
 
+gem 'font-awesome-rails'
+
+gem 'devise-i18n'
+
+gem 'devise-i18n-views'
+
 group :production do
   gem 'pg'
 end

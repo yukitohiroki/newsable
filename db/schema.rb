@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_03_173934) do
+ActiveRecord::Schema.define(version: 2019_10_12_065937) do
 
   create_table "Articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -41,6 +41,8 @@ ActiveRecord::Schema.define(version: 2019_08_03_173934) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "opinions_count", default: 0
+    t.integer "user_clips_count", default: 0
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

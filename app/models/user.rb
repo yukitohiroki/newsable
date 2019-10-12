@@ -6,5 +6,5 @@ class User < ApplicationRecord
          # , :confirmable
   has_many :user_clips
   has_many :clips, through: :user_clips
-  has_many :opinions
+  has_many :opinions, dependent: :destroy
 end

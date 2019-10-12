@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :user_clips
   resources :articles
 
-  resources :clips do
+  resources :clips, only: [:index, :show] do
     resources :opinions do
       resources :comments
     end
