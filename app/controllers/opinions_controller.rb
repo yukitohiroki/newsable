@@ -4,6 +4,7 @@ class OpinionsController < ApplicationController
     @clip = Clip.find(params[:clip_id])
     @opinions = @clip.opinions
     @opinion = Opinion.find(params[:id])
+    @like = current_user.likes.find_or_initialize_by(opinion: @opinion)
   end
 
   def new

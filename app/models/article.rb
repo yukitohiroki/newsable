@@ -1,6 +1,7 @@
 class Article < ApplicationRecord
   has_many :article_categories
   has_many :categories, through: :article_categories
+  has_many :comments, as: :commentable
 
   require "date"
   def upcase_title

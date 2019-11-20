@@ -48,7 +48,7 @@
   <div class="col-md-8">
   <h5><%= opinion.title %></h5>
   <%= opinion.user.email if opinion.user %>
-  <%= simple_format opinion.body%>
+  <%= simple_format @opinion.body %>
   <%= link_to  "続きを読む" ,clip_opinion_path(@clip) %>
   <div class="text-right small">
     <span class="text-muted">

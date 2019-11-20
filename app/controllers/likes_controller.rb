@@ -2,7 +2,15 @@ class LikesController < ApplicationController
   before_action :set_opinion, :set_clip
 
   def create
-    @like = Like.create(user_id: current_user.id, opinion_id: @opinion.id, clip_id: @clip.id)
+    @opinion = Opinion.find params[:opinion_id]
+    @like = @opinion.likes.build(user: current_user)
+    respond_to do |format|
+      if @like.save
+        format.html { redirect_to opinion_path(@like.opinion),
+         notice: 'いいねを押しました' }
+        format.js
+      end
+    end
   end
 
   def destroy
