@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_12_065937) do
+ActiveRecord::Schema.define(version: 2019_10_12_162247) do
 
   create_table "Articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -46,12 +46,14 @@ ActiveRecord::Schema.define(version: 2019_10_12_065937) do
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "commenter"
     t.text "body"
-    t.bigint "opinion_id"
+    t.bigint "user_id"
+    t.string "commentable_type"
+    t.bigint "commentable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["opinion_id"], name: "index_comments_on_opinion_id"
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -102,7 +104,7 @@ ActiveRecord::Schema.define(version: 2019_10_12_065937) do
 
   add_foreign_key "article_categories", "articles"
   add_foreign_key "article_categories", "categories"
-  add_foreign_key "comments", "opinions"
+  add_foreign_key "comments", "users"
   add_foreign_key "likes", "clips"
   add_foreign_key "likes", "opinions"
   add_foreign_key "likes", "users"

@@ -1,0 +1,7 @@
+<% commentable.comments.each do |comment| %>
+  <%= comment.body %><hr>
+<% end %>
+<%= form_with model: [@clip, commentable, Comment.new] do |form| %>
+  <%= form.text_area :body %><br>
+  <%= form.submit %>
+<% end %>

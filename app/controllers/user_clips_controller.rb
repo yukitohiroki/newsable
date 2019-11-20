@@ -12,6 +12,7 @@ class UserClipsController < ApplicationController
   # GET /user_clips/1.json
   def show
     @clip = @user_clip.clip
+    @like = current_user.likes.find_or_initialize_by(user_clip: @user_clip)
   end
 
   # GET /user_clips/new

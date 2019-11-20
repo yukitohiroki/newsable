@@ -8,10 +8,16 @@
   <div class="col-md-8">
     <h4><%= @opinion.title %></h4>
     <%= simple_format @opinion.body %>
+    <div class="like">
+      <%= render 'opinions/like' %>
+    </div>
   </div>
   <div class="col-md-4">
     <ul>
     <li><%= link_to "#{@opinion.title}", @clip %></li>
     </ul>
   </div>
+</div>
+<div>
+<%= render partial: 'comments/comments', locals: { commentable: @opinion } %>
 </div>
